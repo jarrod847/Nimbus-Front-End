@@ -17,7 +17,7 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`http://localhost:7000/user/login`, userCred)
+    Axios.post(`${process.env.REACT_APP_API_URL}user/login`, userCred)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
         props.history.push("/profile");

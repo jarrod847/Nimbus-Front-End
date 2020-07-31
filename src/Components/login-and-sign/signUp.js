@@ -17,7 +17,7 @@ const SignUp = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`http://localhost:7000/user/register`, form)
+    Axios.post(`${process.env.REACT_APP_API_URL}user/register`, form)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
         props.history.push("/profile");
