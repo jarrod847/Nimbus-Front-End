@@ -11,16 +11,10 @@ const NavBar = () => {
         <Link to="/timeline">
           <img className="icon" src={Icon} />
         </Link>
-        <Link className="links" to="/notify">
-          Notification
-        </Link>
         <span className="navSearch">
           <input />
           <img src={searchIcon} />
         </span>
-        <Link className="links" to="/profile">
-          Profile
-        </Link>
         <Link className="links" to="/login">
           Login
         </Link>
