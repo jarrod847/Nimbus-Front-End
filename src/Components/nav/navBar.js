@@ -2,13 +2,14 @@ import React from "react";
 import searchIcon from "../../icons8-search-24.png";
 import "../../scss/nav/nav.scss";
 import { Link } from "react-router-dom";
+import Icon from "../../resized.png";
 
 const NavBar = () => {
   return (
     <nav>
       <div className="navLinks">
         <Link className="links" to="/profile">
-          Profile
+          <img className="icon" src={Icon} />
         </Link>
         <Link className="links" to="/notify">
           Notification
