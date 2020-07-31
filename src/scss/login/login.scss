@@ -44,3 +44,23 @@
   font-weight: bold;
   color: #1b1c25;
 }
+
+@media screen and (max-width: 850px) {
+  .login {
+    width: 85%;
+    span {
+      display: flex;
+      flex-direction: column;
+      margin: 5px auto;
+      text-align: center;
+      h3 {
+        margin: 0;
+        width: 100px;
+        display: flex;
+      }
+      input {
+        width: 80%;
+      }
+    }
+  }
+}
