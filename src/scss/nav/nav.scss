@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
-  margin: 3%;
+  margin: auto;
   border-bottom: 3px solid #1f4068;
-  padding: 5px;
+  padding: 10px;
   border-radius: 2px;
+  width: 90%;
 
   .navSearch {
     display: flex;
@@ -26,5 +27,10 @@
     text-decoration: none;
     font-weight: bold;
     border-bottom: solid #206a5d 3px;
+    color: #1b1c25;
   }
+}
+
+.icon {
+  width: 50px;
 }
