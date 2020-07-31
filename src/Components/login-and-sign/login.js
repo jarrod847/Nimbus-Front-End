@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="login">
+    <form className="login">
       <h1>Login</h1>
       <span>
         <h3>Username:</h3>
@@ -16,7 +16,7 @@ const Login = () => {
       <h3>
         Dont have an account? <Link to="signup">Sign up!</Link>
       </h3>
-    </div>
+    </form>
   );
 };
 

@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <nav>
       <div className="navLinks">
-        <Link className="links" to="/profile">
+        <Link to="/timeline">
           <img className="icon" src={Icon} />
         </Link>
         <Link className="links" to="/notify">
@@ -18,8 +18,8 @@ const NavBar = () => {
           <input />
           <img src={searchIcon} />
         </span>
-        <Link className="links" to="/timeline">
-          Time Line
+        <Link className="links" to="/profile">
+          Profile
         </Link>
         <Link className="links" to="/login">
           Login
