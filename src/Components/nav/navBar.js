@@ -15,9 +15,15 @@ const NavBar = () => {
           <input />
           <img src={searchIcon} />
         </span>
-        <Link className="links" to="/login">
-          Login
-        </Link>
+        {localStorage.getItem("token") ? (
+          <Link className="links" to="profile">
+            Profile
+          </Link>
+        ) : (
+          <Link className="links" to="/login">
+            Login
+          </Link>
+        )}
       </div>
     </nav>
   );
