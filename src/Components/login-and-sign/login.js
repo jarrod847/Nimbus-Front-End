@@ -30,6 +30,7 @@ const Login = (props) => {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("User", res.data.user.displayName);
         localStorage.setItem("Bio", res.data.user.bio);
+        localStorage.setItem("img", res.data.user.img);
         props.history.push("/profile");
         window.location.reload();
       })
@@ -52,6 +53,7 @@ const Login = (props) => {
         <h3>Password:</h3>
         <input
           name="password"
+          type="password"
           value={userCred.password}
           onChange={handleLogin}
           className="inputs"

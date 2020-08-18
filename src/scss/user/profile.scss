@@ -5,4 +5,20 @@
   border-radius: 15px;
   text-align: center;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  img {
+    width: 100px;
+    height: 150px;
+    border-radius: 50px;
+  }
+  .userInfo {
+    display: flex;
+    flex-flow: column;
+
+    button {
+      margin: 25px;
+    }
+  }
 }
