@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login } from "../../Redux/thunks/auth";
 import { useHistory } from "react-router-dom";
 import { axiosBaseUrl } from "../../utils/axiosBaseURL";
 import Axios from "axios";

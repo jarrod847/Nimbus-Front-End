@@ -6,7 +6,7 @@ const User = atom({
     info: [],
     posts: [],
     repost: [],
-    Likes: [],
+    likes: [],
   },
 });
 
