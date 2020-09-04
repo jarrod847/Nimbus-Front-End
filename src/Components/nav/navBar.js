@@ -11,10 +11,13 @@ const NavBar = () => {
         <Link to="/timeline">
           <img className="icon" src={Icon} />
         </Link>
-        <span className="navSearch">
+        <Link className="header">
+          <h1>Nimbus</h1>
+        </Link>
+        {/* <span className="navSearch">
           <input />
           <img src={searchIcon} />
-        </span>
+        </span> */}
         {localStorage.getItem("token") ? (
           <Link className="links" to="profile">
             Profile

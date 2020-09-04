@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../../Redux/thunks/auth";
+import { useHistory } from "react-router-dom";
+import { axiosBaseUrl } from "../../utils/axiosBaseURL";
 import Axios from "axios";
 
 const Login = (props) => {
@@ -15,11 +19,18 @@ const Login = (props) => {
     });
   };
 
+  const dispatch = useDispatch();
+  const { push } = useHistory();
+
   const onSubmit = (e) => {
     e.preventDefault();
     Axios.post(`${process.env.REACT_APP_API_URL}user/login`, userCred)
       .then((res) => {
-        localStorage.setItem("token", res.data.payload);
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        localStorage.setItem("User", res.data.user.displayName);
+        localStorage.setItem("Bio", res.data.user.bio);
+        localStorage.setItem("img", res.data.user.img);
         props.history.push("/profile");
         window.location.reload();
       })
@@ -42,6 +53,7 @@ const Login = (props) => {
         <h3>Password:</h3>
         <input
           name="password"
+          type="password"
           value={userCred.password}
           onChange={handleLogin}
           className="inputs"
