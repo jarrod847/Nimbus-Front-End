@@ -12,20 +12,12 @@ const AddPost = () => {
 
   const postState = useSetRecoilState(Posts);
 
-  console.log(postState);
-
   //   let id = length.postState;
   let id = 0;
 
   const addPost = () => {
-    postState((old) => [
-      ...old,
-      {
-        id: id++,
-        content: newPost,
-      },
-    ]);
-    setNewPost();
+    postState((old) => [...old, newPost]);
+    setNewPost("");
   };
   const onChange = (e) => setNewPost(e.target.value);
   return (

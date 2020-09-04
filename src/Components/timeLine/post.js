@@ -3,12 +3,12 @@ import React from "react";
 const Post = ({ post }) => {
   return (
     <div className="post">
-      <div>
+      {/* <div>
         <img className="userImg" src={post.userImg} />
-      </div>
+      </div> */}
       <div className="postContext">
-        <h2>{post.user}</h2>
-        <p>{post.text}</p>
+        {/* <h2>{post.user}</h2> */}
+        <p>{post}</p>
       </div>
     </div>
   );
