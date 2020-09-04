@@ -1,4 +1,4 @@
-const atom = require("recoil");
+const { atom } = require("recoil");
 
 const User = atom({
   key: "user",
@@ -6,7 +6,7 @@ const User = atom({
     info: [],
     posts: [],
     repost: [],
-    Likes: [],
+    likes: [],
   },
 });
 
