@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { axiosBaseUrl } from "../../utils/axiosBaseURL";
 import Axios from "axios";
@@ -18,7 +17,6 @@ const Login = (props) => {
     });
   };
 
-  const dispatch = useDispatch();
   const { push } = useHistory();
 
   const onSubmit = (e) => {
