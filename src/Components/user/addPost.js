@@ -3,12 +3,7 @@ import { useSetRecoilState } from "recoil";
 import Posts from "../Recoil/atom/post";
 
 const AddPost = () => {
-  const [newPost, setNewPost] = useState({
-    content: "",
-    likes: 0,
-    repost: 0,
-    comments: {},
-  });
+  const [newPost, setNewPost] = useState("");
 
   const postState = useSetRecoilState(Posts);
 
@@ -16,8 +11,16 @@ const AddPost = () => {
   let id = 0;
 
   const addPost = () => {
-    postState((old) => [...old, newPost]);
-    setNewPost("");
+    postState((old) => [
+      ...old,
+      {
+        id: id++,
+        content: newPost,
+        likes: 0,
+        repost: 0,
+        comments: {},
+      },
+    ]);
   };
   const onChange = (e) => setNewPost(e.target.value);
   return (
@@ -27,12 +30,13 @@ const AddPost = () => {
         onSubmit={(e) => {
           e.preventDefault();
           addPost(newPost);
+          setNewPost("");
         }}
       >
         <h3>To the cloud</h3>
         <span>
           Thoughts:
-          <input value={newPost.content} type="text" onChange={onChange} />
+          <input value={newPost} type="text" onChange={onChange} />
           <button>Post</button>
         </span>
       </form>

@@ -1,6 +1,7 @@
 import React from "react";
 
 const Post = ({ post }) => {
+  console.log("Post", post);
   return (
     <div className="post">
       {/* <div>
@@ -8,7 +9,7 @@ const Post = ({ post }) => {
       </div> */}
       <div className="postContext">
         {/* <h2>{post.user}</h2> */}
-        <p>{post}</p>
+        <p>{post.content}</p>
       </div>
     </div>
   );
