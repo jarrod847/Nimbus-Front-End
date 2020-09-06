@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useSetRecoilState, useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
 
 const AddPost = () => {
   const [newPost, setNewPost] = useState("");
 
   const postState = useSetRecoilState(Posts);
-
-  //   let id = length.postState;
-  let id = 0;
+  const allPosts = useRecoilValue(Posts);
+  let len = allPosts.length;
 
   const addPost = () => {
     postState((old) => [
       ...old,
       {
-        id: id++,
+        id: len++,
         content: newPost,
         likes: 0,
         repost: 0,
@@ -36,7 +35,7 @@ const AddPost = () => {
         <h3>To the cloud</h3>
         <span>
           Thoughts:
-          <input value={newPost} type="text" onChange={onChange} />
+          <input value={newPost} onChange={onChange} />
           <button>Post</button>
         </span>
       </form>
