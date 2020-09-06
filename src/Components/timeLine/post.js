@@ -1,7 +1,6 @@
 import React from "react";
 
 const Post = ({ post }) => {
-  console.log("Post", post);
   return (
     <div className="post">
       {/* <div>
