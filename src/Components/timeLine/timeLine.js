@@ -5,10 +5,12 @@ import Post from "./post";
 import AddPost from "../user/addPost";
 import { useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
+import updatePosts from "../Recoil/thunk/updatePosts";
 
 const TimeLine = () => {
   const allPosts = useRecoilValue(Posts);
   console.log(allPosts);
+  updatePosts();
   return (
     <div className="App">
       <div className="timeLine">
