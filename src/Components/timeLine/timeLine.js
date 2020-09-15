@@ -6,11 +6,11 @@ import AddPost from "../user/addPost";
 import { useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
 // import updatePosts from "../Recoil/thunk/updatePosts";
+import fetchPosts from "../Recoil/selector/postSelector";
 
 const TimeLine = () => {
   const allPosts = useRecoilValue(Posts);
-  console.log(allPosts);
-  // updatePosts();
+
   return (
     <div className="App">
       <div className="timeLine">
@@ -20,10 +20,6 @@ const TimeLine = () => {
       {allPosts.map((item, index) => (
         <Post key={index} post={item} />
       ))}
-
-      {/* {data.map((item) => (
-        <Post key={item.user} post={item} />
-      ))} */}
     </div>
   );
 };

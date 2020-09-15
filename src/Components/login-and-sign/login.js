@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { axiosBaseUrl } from "../../utils/axiosBaseURL";
 import Axios from "axios";
+import { useRecoilState } from "recoil";
+import User from "../Recoil/atom/user";
 
 const Login = (props) => {
   const [userCred, setUserCred] = useState({
     displayName: "",
     password: "",
   });
+
+  const [userProfile, setUserProfile] = useRecoilState(User);
+  console.log(userProfile);
 
   const handleLogin = (e) => {
     setUserCred({
@@ -24,16 +28,14 @@ const Login = (props) => {
     Axios.post(`${process.env.REACT_APP_API_URL}user/login`, userCred)
       .then((res) => {
         console.log(res);
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("User", res.data.user.displayName);
-        localStorage.setItem("Bio", res.data.user.bio);
-        localStorage.setItem("img", res.data.user.img);
+        setUserProfile(res.data.user);
         props.history.push("/profile");
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => console.error(err));
   };
 
+  console.log(userCred);
   return (
     <form onSubmit={onSubmit} className="login">
       <h1>Login</h1>

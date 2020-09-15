@@ -1,0 +1,30 @@
+.signUp {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  border: solid #1f4068 3px;
+  width: 50%;
+  margin: 5% auto;
+  border-radius: 15px;
+
+  .signUpCred {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  .signupSpan {
+    display: flex;
+    flex-direction: column;
+    b {
+      display: flex;
+    }
+    input {
+      width: 300px;
+      height: 35px;
+    }
+    .bioText {
+      width: 425px;
+    }
+  }
+}
