@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import User from "../Recoil/atom/user";
 
 const Profile = (props) => {
   const logout = () => {
@@ -7,7 +9,8 @@ const Profile = (props) => {
     props.history.push("/login");
     window.location.reload();
   };
-
+  const userInfo = useRecoilValue(User);
+  console.log(userInfo);
   const user = localStorage.getItem("User");
   const bio = localStorage.getItem("Bio");
   const img = localStorage.getItem("img");
