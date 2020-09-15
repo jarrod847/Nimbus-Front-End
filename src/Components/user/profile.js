@@ -12,8 +12,6 @@ const Profile = (props) => {
   const bio = localStorage.getItem("Bio");
   const img = localStorage.getItem("img");
 
-  console.log(img);
-
   return (
     <div className="profile">
       <div>
