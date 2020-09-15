@@ -28,13 +28,9 @@ const Login = (props) => {
     Axios.post(`${process.env.REACT_APP_API_URL}user/login`, userCred)
       .then((res) => {
         console.log(res);
-        setUserProfile(res);
-        localStorage.setItem("token", res.data.token);
-        localStorage.setItem("User", res.data.user.displayName);
-        localStorage.setItem("Bio", res.data.user.bio);
-        localStorage.setItem("img", res.data.user.img);
+        setUserProfile(res.data.user);
         props.history.push("/profile");
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => console.error(err));
   };
