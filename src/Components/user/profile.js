@@ -9,6 +9,7 @@ const Profile = (props) => {
     props.history.push("/login");
   };
   const userInfo = useRecoilValue(User);
+  console.log(userInfo);
 
   return (
     <div className="profile">

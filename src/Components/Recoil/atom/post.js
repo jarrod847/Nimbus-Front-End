@@ -2,7 +2,7 @@ const { atom } = require("recoil");
 
 const Posts = atom({
   key: "post",
-  default: [],
+  default: {},
 });
 
 export default Posts;
