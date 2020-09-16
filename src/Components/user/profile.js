@@ -7,10 +7,8 @@ const Profile = (props) => {
   const logout = () => {
     localStorage.clear();
     props.history.push("/login");
-    window.location.reload();
   };
   const userInfo = useRecoilValue(User);
-  console.log(userInfo);
 
   return (
     <div className="profile">
