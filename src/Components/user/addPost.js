@@ -36,7 +36,7 @@ const AddPost = () => {
           setNewPost("");
         }}
       >
-        <h3>To the cloud</h3>
+        <h3>Speak your mind</h3>
         <span>
           Thoughts:
           <input value={newPost} onChange={onChange} />
