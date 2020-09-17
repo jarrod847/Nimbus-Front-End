@@ -10,7 +10,6 @@ import fetchPosts from "../Recoil/selector/postSelector";
 import Axios from "axios";
 
 const TimeLine = () => {
-  const allPosts = useRecoilValue(Posts);
   const [userFeed, setUserFeed] = useRecoilState(Posts);
   useEffect(() => {
     Axios.get(`${process.env.REACT_APP_API_URL}post/posts`)
@@ -19,7 +18,6 @@ const TimeLine = () => {
       })
       .catch((err) => console.log(err));
   }, [setUserFeed]);
-  console.log(userFeed);
 
   return (
     <div className="App">
@@ -27,9 +25,9 @@ const TimeLine = () => {
         <h1>User's TimeLine</h1>
       </div>
       <AddPost />
-      {/* {userFeed.map((item, index) => (
-        <Post key={index} post={item} />
-      ))} */}
+      {userFeed.map((item) => (
+        <Post key={item.id} post={item} />
+      ))}
     </div>
   );
 };
