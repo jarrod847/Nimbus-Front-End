@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
+import User from "../Recoil/atom/user";
 
 const AddPost = () => {
   const [newPost, setNewPost] = useState("");
@@ -8,6 +9,8 @@ const AddPost = () => {
   const postState = useSetRecoilState(Posts);
   const allPosts = useRecoilValue(Posts);
   let len = allPosts.length;
+  const userInfo = useRecoilValue(User);
+  console.log(userInfo);
 
   const addPost = () => {
     postState((old) => [
@@ -18,6 +21,7 @@ const AddPost = () => {
         likes: 0,
         repost: 0,
         comments: {},
+        user_id: userInfo.id,
       },
     ]);
   };

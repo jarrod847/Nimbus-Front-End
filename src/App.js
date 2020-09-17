@@ -6,6 +6,7 @@ import Profile from "./Components/user/profile";
 import Login from "./Components/login-and-sign/login";
 import "./scss/app.scss";
 import SignUp from "./Components/login-and-sign/signUp";
+import Home from "./Components/splashPage/splashPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
+        <Route exact path="/" component={Home} />
       </Router>
     </div>
   );
