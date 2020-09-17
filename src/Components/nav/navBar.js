@@ -3,8 +3,12 @@ import searchIcon from "../../icons8-search-24.png";
 import "../../scss/nav/nav.scss";
 import { Link } from "react-router-dom";
 import Icon from "../../resized.png";
+import { useRecoilValue } from "recoil";
+import User from "../Recoil/atom/user";
 
 const NavBar = () => {
+  const userInfo = useRecoilValue(User);
+  console.log(userInfo);
   return (
     <nav>
       <div className="navLinks">
@@ -18,7 +22,7 @@ const NavBar = () => {
           <input />
           <img src={searchIcon} />
         </span> */}
-        {localStorage.getItem("token") ? (
+        {userInfo.id ? (
           <Link className="links" to="profile">
             Profile
           </Link>
