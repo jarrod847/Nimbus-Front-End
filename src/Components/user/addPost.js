@@ -21,7 +21,7 @@ const AddPost = () => {
         likes: 0,
         repost: 0,
         comments: {},
-        user_id: userInfo.user_id,
+        user_id: userInfo.id,
       },
     ]);
   };
