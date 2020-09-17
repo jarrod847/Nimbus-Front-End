@@ -15,13 +15,10 @@ const NavBar = () => {
         <Link to="/timeline">
           <img className="icon" src={Icon} />
         </Link>
-        <Link className="header">
+        <Link className="header" to="/">
           <h1>Nimbus</h1>
         </Link>
-        {/* <span className="navSearch">
-          <input />
-          <img src={searchIcon} />
-        </span> */}
+
         {userInfo.id ? (
           <Link className="links" to="profile">
             Profile
