@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React, { useState } from "react";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
@@ -6,25 +7,26 @@ import User from "../Recoil/atom/user";
 const AddPost = () => {
   const userInfo = useRecoilValue(User);
   const allPosts = useRecoilValue(Posts);
-  let len = allPosts.length;
   const [newPost, setNewPost] = useState({
-    id: len++,
     content: "",
     likes: 0,
-    repost: 0,
-    comments: {},
+    reposts: 0,
     user_id: userInfo.id,
   });
 
   const postState = useSetRecoilState(Posts);
 
-  console.log(newPost);
-
   const addPost = () => {
     postState((old) => [...old, newPost]);
   };
 
-  const postApi = () => {};
+  const postApi = () => {
+    Axios.post(`${process.env.REACT_APP_API_URL}post/sendpost`, newPost)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
   const onChange = (e) =>
     setNewPost({ ...newPost, [e.target.name]: e.target.value });
   return (
@@ -34,6 +36,7 @@ const AddPost = () => {
         onSubmit={(e) => {
           e.preventDefault();
           addPost(newPost);
+          postApi();
           setNewPost("");
         }}
       >

@@ -8,7 +8,6 @@ import User from "../Recoil/atom/user";
 
 const NavBar = () => {
   const userInfo = useRecoilValue(User);
-  console.log(userInfo);
   return (
     <nav>
       <div className="navLinks">
