@@ -21,13 +21,13 @@ const TimeLine = () => {
 
   return (
     <div className="App">
+      <AddPost />
       <div className="timeLine">
         <h1>User's TimeLine</h1>
       </div>
-      <AddPost />
       {userFeed.map((item) => (
         <Post key={item.id} post={item} />
-      ))}
+      ))}{" "}
     </div>
   );
 };
