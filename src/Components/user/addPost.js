@@ -37,7 +37,6 @@ const AddPost = () => {
           e.preventDefault();
           addPost(newPost);
           postApi();
-          setNewPost("");
         }}
       >
         <h3>Speak your mind</h3>
