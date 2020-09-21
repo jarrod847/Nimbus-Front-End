@@ -10,9 +10,7 @@ const Login = (props) => {
     displayName: "",
     password: "",
   });
-
   const [userProfile, setUserProfile] = useRecoilState(User);
-  console.log(userProfile);
 
   const handleLogin = (e) => {
     setUserCred({
@@ -35,7 +33,6 @@ const Login = (props) => {
       .catch((err) => console.error(err));
   };
 
-  console.log(userCred);
   return (
     <form onSubmit={onSubmit} className="login">
       <h1>Login</h1>

@@ -4,11 +4,11 @@ const Post = ({ post }) => {
   console.log(post);
   return (
     <div className="post">
-      {/* <div>
-        <img className="userImg" src={post.userImg} />
-      </div> */}
+      <div>
+        <img className="userImg" src={post.img} />
+      </div>
       <div className="postContext">
-        {/* <h2>{post.user}</h2> */}
+        <h2>{post.displayName}</h2>
         <p>{post.content}</p>
       </div>
     </div>
