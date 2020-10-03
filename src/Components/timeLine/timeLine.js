@@ -20,14 +20,14 @@ const TimeLine = () => {
   }, [setUserFeed]);
 
   return (
-    <div className="App">
+    <div>
       <AddPost />
-      <div className="timeLine">
+      <div className="timeLineHeader">
         <h1>User's TimeLine</h1>
       </div>
       {userFeed.map((item) => (
         <Post key={item.id} post={item} />
-      ))}{" "}
+      ))}
     </div>
   );
 };
