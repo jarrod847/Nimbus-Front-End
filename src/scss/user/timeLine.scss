@@ -1,6 +1,12 @@
-.timeLineHeader {
-  margin: 3%;
-  border: solid 3px #1f4068;
-  text-align: center;
-  border-radius: 15px;
+.timeLine {
+  .timeLineHeader {
+    margin: 0 3%;
+    border: solid 3px #1f4068;
+    text-align: center;
+    border-radius: 15px;
+  }
+
+  .timeLinePosts {
+    padding: 0 0 5% 0;
+  }
 }

@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import Post from "./post";
 import AddPost from "../user/addPost";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
 import Axios from "axios";
+import User from "../Recoil/atom/user";
 
 const TimeLine = () => {
   const [userFeed, setUserFeed] = useRecoilState(Posts);
@@ -15,15 +16,20 @@ const TimeLine = () => {
       .catch((err) => console.log(err));
   }, [setUserFeed]);
 
+  console.log(userFeed);
+  const userInfo = useRecoilValue(User);
+
   return (
-    <div>
+    <div className="timeLine">
       <AddPost />
       <div className="timeLineHeader">
         <h1>User's TimeLine</h1>
       </div>
-      {userFeed.map((item) => (
-        <Post key={item.id} post={item} />
-      ))}
+      <div className="timeLinePosts">
+        {userFeed.map((item) => (
+          <Post key={item.id} post={item} user={userInfo} />
+        ))}
+      </div>
     </div>
   );
 };
