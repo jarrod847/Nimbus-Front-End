@@ -1,12 +1,8 @@
 import React, { useEffect } from "react";
-import "../../scss/user/timeLine.scss";
-import { data } from "./data";
 import Post from "./post";
 import AddPost from "../user/addPost";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 import Posts from "../Recoil/atom/post";
-// import updatePosts from "../Recoil/thunk/updatePosts";
-import fetchPosts from "../Recoil/selector/postSelector";
 import Axios from "axios";
 
 const TimeLine = () => {
