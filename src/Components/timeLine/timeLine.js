@@ -20,14 +20,16 @@ const TimeLine = () => {
   const userInfo = useRecoilValue(User);
 
   return (
-    <div>
+    <div className="timeLine">
       <AddPost />
       <div className="timeLineHeader">
         <h1>User's TimeLine</h1>
       </div>
-      {userFeed.map((item) => (
-        <Post key={item.id} post={item} user={userInfo} />
-      ))}
+      <div className="timeLinePosts">
+        {userFeed.map((item) => (
+          <Post key={item.id} post={item} user={userInfo} />
+        ))}
+      </div>
     </div>
   );
 };
