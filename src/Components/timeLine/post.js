@@ -19,6 +19,9 @@ const Post = ({ post, user }) => {
           <button>Repost</button>
           <p>{post.reposts}</p>
         </span>
+        <span>
+          <button>Comments</button>
+        </span>
       </div>
     </div>
   );

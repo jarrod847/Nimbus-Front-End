@@ -16,7 +16,7 @@ const TimeLine = () => {
       .catch((err) => console.log(err));
   }, [setUserFeed]);
 
-  console.log(userFeed);
+  const reversedArray = [...userFeed].reverse();
   const userInfo = useRecoilValue(User);
 
   return (
@@ -26,7 +26,7 @@ const TimeLine = () => {
         <h1>User's TimeLine</h1>
       </div>
       <div className="timeLinePosts">
-        {userFeed.map((item) => (
+        {reversedArray.map((item) => (
           <Post key={item.id} post={item} user={userInfo} />
         ))}
       </div>
