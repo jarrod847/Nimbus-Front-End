@@ -20,6 +20,8 @@ const AddPost = () => {
     postState((old) => [...old, newPost]);
   };
 
+  //trollin
+
   const postApi = () => {
     Axios.post(`${process.env.REACT_APP_API_URL}post/sendpost`, newPost)
       .then((res) => {
