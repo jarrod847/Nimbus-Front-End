@@ -6,7 +6,6 @@ import User from "../Recoil/atom/user";
 
 const AddPost = () => {
   const userInfo = useRecoilValue(User);
-  const allPosts = useRecoilValue(Posts);
   const [newPost, setNewPost] = useState({
     content: "",
     likes: 0,
