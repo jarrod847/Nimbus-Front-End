@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
@@ -10,6 +11,10 @@ const Profile = (props) => {
   };
   const userInfo = useRecoilValue(User);
   console.log(userInfo);
+
+  // const userPosts = () => {
+  //   Axios.get(`${process.env.REACT_APP_API_URL}/post/userposts/`)
+  // }
 
   return (
     <div className="profile">
