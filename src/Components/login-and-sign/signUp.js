@@ -51,7 +51,7 @@ const SignUp = (props) => {
           />
         </span>{" "}
         <span className="signupSpan">
-          <b>Img</b>
+          <b>Img (Img URL)</b>
           <input name="img" onChange={handleSignUp} value={form.img} />
         </span>{" "}
         <span className="signupSpan">
