@@ -13,12 +13,12 @@ const Profile = (props) => {
   };
   const userInfo = useRecoilValue(User);
   const userId = userInfo.id;
-  console.log(userId);
 
   useEffect(() => {
     Axios.get(`${process.env.REACT_APP_API_URL}post/userposts/${userId}`)
       .then((res) => {
-        setCloudThoughts(res.data);
+        const UserPostData = res.data;
+        setCloudThoughts(UserPostData.reverse());
       })
       .catch((err) => console.log(err));
   }, []);
