@@ -1,8 +1,13 @@
 .App {
   background-color: #ebecf1;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 @import "./login/login.scss";
 @import "./nav/nav.scss";
 @import "./user/timeLine.scss";
+@import "./user/profile.scss";
+@import "./timeline/post.scss";
+@import "./user/addPost.scss";
+@import "./login/signup.scss";
+@import "./splash/home.scss";

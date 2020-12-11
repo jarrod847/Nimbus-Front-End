@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
+import { useRecoilState } from "recoil";
+import User from "../Recoil/atom/user";
 
 const Login = (props) => {
   const [userCred, setUserCred] = useState({
     displayName: "",
     password: "",
   });
+  const [userProfile, setUserProfile] = useRecoilState(User);
 
   const handleLogin = (e) => {
     setUserCred({
@@ -15,13 +19,16 @@ const Login = (props) => {
     });
   };
 
+  const { push } = useHistory();
+
   const onSubmit = (e) => {
     e.preventDefault();
     Axios.post(`${process.env.REACT_APP_API_URL}user/login`, userCred)
       .then((res) => {
-        localStorage.setItem("token", res.data.payload);
+        console.log(res);
+        setUserProfile(res.data.user);
         props.history.push("/profile");
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((err) => console.error(err));
   };
@@ -42,6 +49,7 @@ const Login = (props) => {
         <h3>Password:</h3>
         <input
           name="password"
+          type="password"
           value={userCred.password}
           onChange={handleLogin}
           className="inputs"
