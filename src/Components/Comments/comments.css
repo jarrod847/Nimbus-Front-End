@@ -1,0 +1,32 @@
+
+  .cloud{ 
+     margin-top:70px;
+     width:450px;
+     height:157px;
+     background:#e3edf3;
+     border-radius:100px;
+     margin: 250px 250px;
+     border: 6px #206a5d solid;
+  }
+  .cloud::after, .cloud::before{
+      content:"";
+      position:relative;
+      display:inline-block;
+      background:inherit;
+      border-radius:inherit;
+  }
+  .cloud::after{
+      width:100px;
+      height:100px;
+      top:-120px;
+      left:20px;
+      border-top: 8px #206a5d solid;
+  }
+  .cloud::before{
+      width:180px;
+      height:180px;
+      top: -100px;
+      left:50px;
+      border-top: 8px #206a5d solid;
+    
+  }
