@@ -10,6 +10,7 @@ const AddPost = () => {
     content: "",
     likes: 0,
     reposts: 0,
+    img: "",
     user_id: userInfo.id,
   });
 

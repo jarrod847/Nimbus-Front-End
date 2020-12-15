@@ -7,6 +7,7 @@ import Post from "../timeLine/post";
 
 const Profile = (props) => {
   const [cloudThoughts, setCloudThoughts] = useState([]);
+  const [cloudComments, setCloudComments] = useState([]);
   const logout = () => {
     localStorage.clear();
     props.history.push("/login");
@@ -22,6 +23,17 @@ const Profile = (props) => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    Axios.get(`${process.env.REACT_APP_API_URL}comment/user/${userId}`)
+      .then((res) => {
+        const UserCommentsData = res.data;
+        setCloudComments(UserCommentsData.reverse());
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  console.log(cloudComments);
 
   return (
     <div>
