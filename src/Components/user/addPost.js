@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
 import User from "../Recoil/atom/user";
+import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const AddPost = () => {
   const userInfo = useRecoilValue(User);
@@ -21,7 +22,8 @@ const AddPost = () => {
   };
 
   const postApi = () => {
-    Axios.post(`${process.env.REACT_APP_API_URL}post/sendpost`, newPost)
+    AxiosWithUrl()
+      .post(`/post/sendpost`, newPost)
       .then((res) => {
         console.log(res);
       })

@@ -5,11 +5,13 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
 import Axios from "axios";
 import User from "../Recoil/atom/user";
+import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const TimeLine = () => {
   const [userFeed, setUserFeed] = useRecoilState(Posts);
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_URL}post/posts`)
+    AxiosWithUrl()
+      .get("/post/posts")
       .then((res) => {
         setUserFeed(res.data);
       })
