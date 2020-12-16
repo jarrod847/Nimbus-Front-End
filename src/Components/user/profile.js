@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import User from "../Recoil/atom/user";
+import { getUserPosts, getUsersComments } from "../Recoil/thunk/profileThunks";
 import Post from "../timeLine/post";
 import AxiosWithUrl from "../utilities/axiosWithUrl";
 
@@ -16,24 +17,11 @@ const Profile = (props) => {
   const userInfo = useRecoilValue(User);
   const userId = userInfo.id;
 
-  useEffect(() => {
-    AxiosWithUrl()
-      .get(`/post/userposts/${userId}`)
-      .then((res) => {
-        const UserPostData = res.data;
-        setCloudThoughts(UserPostData.reverse());
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  console.log(cloudThoughts);
 
   useEffect(() => {
-    AxiosWithUrl()
-      .get(`/comment/user/${userId}`)
-      .then((res) => {
-        const UserCommentsData = res.data;
-        setCloudComments(UserCommentsData.reverse());
-      })
-      .catch((err) => console.log(err));
+    getUserPosts(userId, setCloudThoughts)();
+    getUsersComments(userId, setCloudComments)();
   }, []);
 
   console.log(cloudComments);
