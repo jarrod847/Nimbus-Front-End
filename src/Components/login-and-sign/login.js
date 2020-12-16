@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import Axios from "axios";
 import { useRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
+import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const Login = (props) => {
   const [userCred, setUserCred] = useState({
@@ -19,16 +18,13 @@ const Login = (props) => {
     });
   };
 
-  const { push } = useHistory();
-
   const onSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`${process.env.REACT_APP_API_URL}user/login`, userCred)
+    AxiosWithUrl()
+      .post(`/user/login`, userCred)
       .then((res) => {
-        console.log(res);
         setUserProfile(res.data.user);
         props.history.push("/profile");
-        // window.location.reload();
       })
       .catch((err) => console.error(err));
   };

@@ -1,7 +1,9 @@
-import axios from "axios";
+import Axios from "axios";
 
-export const axiosWithUrl = () => {
-  axios.create({
+const AxiosWithUrl = () => {
+  return Axios.create({
     baseURL: process.env.REACT_APP_API_URL,
   });
 };
+
+export default AxiosWithUrl;

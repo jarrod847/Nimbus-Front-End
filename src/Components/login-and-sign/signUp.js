@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import { useRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
+import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const SignUp = (props) => {
   const [form, setForm] = useState({
@@ -21,11 +22,12 @@ const SignUp = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    Axios.post(`${process.env.REACT_APP_API_URL}user/register`, form)
+    AxiosWithUrl()
+      .post(`/user/register`, form)
       .then((res) => {
         localStorage.setItem("token", res.data.payload);
         props.history.push("/profile");
-        setUserProfile(res);
+        setUserProfile(res.data);
         localStorage.setItem("info", res.data);
       })
       .catch((err) => console.error(err));

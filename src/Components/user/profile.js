@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import User from "../Recoil/atom/user";
 import Post from "../timeLine/post";
+import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const Profile = (props) => {
   const [cloudThoughts, setCloudThoughts] = useState([]);
@@ -16,7 +17,8 @@ const Profile = (props) => {
   const userId = userInfo.id;
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_URL}post/userposts/${userId}`)
+    AxiosWithUrl()
+      .get(`/post/userposts/${userId}`)
       .then((res) => {
         const UserPostData = res.data;
         setCloudThoughts(UserPostData.reverse());
@@ -25,7 +27,8 @@ const Profile = (props) => {
   }, []);
 
   useEffect(() => {
-    Axios.get(`${process.env.REACT_APP_API_URL}comment/user/${userId}`)
+    AxiosWithUrl()
+      .get(`/comment/user/${userId}`)
       .then((res) => {
         const UserCommentsData = res.data;
         setCloudComments(UserCommentsData.reverse());
