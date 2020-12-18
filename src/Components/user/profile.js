@@ -1,11 +1,9 @@
-import Axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import User from "../Recoil/atom/user";
 import { getUserPosts, getUsersComments } from "../Recoil/thunk/profileThunks";
 import Post from "../timeLine/post";
-import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const Profile = (props) => {
   const [cloudThoughts, setCloudThoughts] = useState([]);
@@ -17,14 +15,10 @@ const Profile = (props) => {
   const userInfo = useRecoilValue(User);
   const userId = userInfo.id;
 
-  console.log(cloudThoughts);
-
   useEffect(() => {
     getUserPosts(userId, setCloudThoughts)();
     getUsersComments(userId, setCloudComments)();
   }, []);
-
-  console.log(cloudComments);
 
   return (
     <div>
