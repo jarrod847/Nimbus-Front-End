@@ -8,3 +8,12 @@ export const LoginToApi = (userCred, state) => async () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const SignUpApi = (userInfo, profile) => async () => {
+  AxiosWithUrl()
+    .post("/user/register", userInfo)
+    .then((res) => {
+      profile(res.data);
+    })
+    .catch((err) => console.log(err));
+};

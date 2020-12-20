@@ -4,6 +4,7 @@ import Axios from "axios";
 import { useRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
 import AxiosWithUrl from "../utilities/axiosWithUrl";
+import { SignUpApi } from "../Recoil/thunk/loginAndSignUpThunk";
 
 const SignUp = (props) => {
   const [form, setForm] = useState({
@@ -22,15 +23,8 @@ const SignUp = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    AxiosWithUrl()
-      .post(`/user/register`, form)
-      .then((res) => {
-        localStorage.setItem("token", res.data.payload);
-        props.history.push("/profile");
-        setUserProfile(res.data);
-        localStorage.setItem("info", res.data);
-      })
-      .catch((err) => console.error(err));
+    SignUpApi(form, setUserProfile)();
+    props.history.push("/profile");
   };
   return (
     <form onSubmit={onSubmit} className="signUp">
