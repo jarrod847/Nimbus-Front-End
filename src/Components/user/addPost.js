@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useSetRecoilState, useRecoilValue } from "recoil";
 import Posts from "../Recoil/atom/post";
 import User from "../Recoil/atom/user";
-import AxiosWithUrl from "../utilities/axiosWithUrl";
+import { sendPostApi } from "../Recoil/thunk/postThunk";
 
 const AddPost = () => {
   const userInfo = useRecoilValue(User);
@@ -21,14 +21,6 @@ const AddPost = () => {
     postState((old) => [...old, newPost]);
   };
 
-  const postApi = () => {
-    AxiosWithUrl()
-      .post(`/post/sendpost`, newPost)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-  };
   const onChange = (e) =>
     setNewPost({ ...newPost, [e.target.name]: e.target.value });
   return (
@@ -38,7 +30,7 @@ const AddPost = () => {
         onSubmit={(e) => {
           e.preventDefault();
           addPost(newPost);
-          postApi();
+          sendPostApi(newPost)();
         }}
       >
         <h3>Speak your mind</h3>
