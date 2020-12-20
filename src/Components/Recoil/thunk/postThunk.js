@@ -2,7 +2,7 @@ import AxiosWithUrl from "../../utilities/axiosWithUrl";
 
 export const sendPostApi = (info) => async () => {
   try {
-    AxiosWithUrl().post(`/post/sendpost`, info);
+    await AxiosWithUrl().post(`/post/sendpost`, info);
   } catch (e) {
     console.log(e);
   }
