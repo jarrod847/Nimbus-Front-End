@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
+import { LoginToApi } from "../Recoil/thunk/loginAndSignUpThunk";
 import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const Login = (props) => {
@@ -20,13 +21,8 @@ const Login = (props) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    AxiosWithUrl()
-      .post(`/user/login`, userCred)
-      .then((res) => {
-        setUserProfile(res.data.user);
-        props.history.push("/profile");
-      })
-      .catch((err) => console.error(err));
+    LoginToApi(userCred, setUserProfile)();
+    props.history.push("/profile");
   };
 
   return (

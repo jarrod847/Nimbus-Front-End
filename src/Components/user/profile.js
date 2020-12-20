@@ -18,7 +18,7 @@ const Profile = (props) => {
   useEffect(() => {
     getUserPosts(userId, setCloudThoughts)();
     getUsersComments(userId, setCloudComments)();
-  }, []);
+  }, [userId]);
 
   return (
     <div>
