@@ -33,6 +33,10 @@ const Profile = (props) => {
           <button onClick={logout}>Logout</button>
         </div>
       </div>
+      <div className="profileSwitcher">
+        <h3>Posts</h3>
+        <h3>Comments</h3>
+      </div>
       <div className="UsersPosts">
         {cloudThoughts.map((posts) => (
           <Post key={posts.id} post={posts} user={userInfo} />

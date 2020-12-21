@@ -22,3 +22,13 @@
     }
   }
 }
+.profileSwitcher {
+  border-bottom: 5px solid #206a5d;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  justify-content: space-evenly;
+  h3 {
+    color: #1f4068;
+  }
+}
