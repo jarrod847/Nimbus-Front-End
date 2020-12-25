@@ -25,13 +25,22 @@ function Comments(props) {
         <div className='cloud'></div>
         <div className="cloudBottom"></div>
         <div className="cloudBottom2">
-          
+        <div className="userNameContainer">{userInfo.user}</div>
+        <div className="likesContainer">Likes: {userInfo.likes} </div>
+        <div className="repostsContainer"> Reposts : {userInfo.reposts}</div>
+        <div className="commentsContainer">
+          <div className="commentSection">{userInfo.text}</div>
+        </div>
+        <div><button className="replyButton">Reply</button></div>
+        <div><button className="repliesButton">Comments</button></div>
+        <div><button className="repostButton">Repost</button></div>
+      
+
         </div>
         
        
-        <div className="cloudBig">
-           
-          <img className='cloudImg' src={userInfo.userImg} />
+        <div className="cloudBig">           
+          <img className='cloudImg' src={userInfo.userImg}/>
           </div>
           <div className="cloudSmall">
             <button><FontAwesomeIcon className="thumbsUp" icon={faThumbsUp} /></button>

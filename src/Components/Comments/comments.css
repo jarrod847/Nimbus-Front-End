@@ -31,7 +31,7 @@
     height:250px;
     background:#e3edf3;
     border-radius:200px 200px 200px 200px;
-    position: absolute;
+    position: relative;
     top:8px;
     left: 8px;
     z-index: 1;
@@ -118,4 +118,102 @@ button:focus{
     position: absolute;
 
 
+  }
+
+  .userNameContainer{
+    color: #206a5d;
+    width: 150px;
+    height:25px;
+    left:80px;
+    border: #206a5d 5px solid;
+    border-radius: 15px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .likesContainer{
+    color: #206a5d;
+    width: 151px;
+    height:25px;
+    left:240px;
+    top: 1px;
+    border: #206a5d 5px solid;
+    border-radius: 15px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .repostsContainer{
+    color: #206a5d;
+    width: 151px;
+    height:25px;
+    left:400px;
+    top: 1px;
+    border: #206a5d 5px solid;
+    border-radius: 15px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .commentsContainer{
+    color: #206a5d;
+    width: 755px;
+    height:150px;
+    left:40px;
+    top: 50px;
+    border: #206a5d 5px solid;
+    border-radius: 15px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .replyButton{
+    color: #206a5d;
+    width: 100px;
+    height:30px;
+    left:550px;
+    top: 212px;
+    border: #206a5d 5px solid;
+    border-radius: 15px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .repliesButton{
+    color: #206a5d;
+    width: 100px;
+    height:30px;
+    left:451px;
+    top: 212px;
+    border: #206a5d 5px solid;
+    border-radius: 15px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .repostButton{
+    color: #206a5d;
+    width: 100px;
+    height:30px;
+    left:649px;
+    top: 212px;
+    border: #206a5d 5px solid;
+    border-radius: 15px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .commentSection{
+    text-align: left;
+    justify-content: flex-start;
+    width: 740px;
+    height:140px;
   }
