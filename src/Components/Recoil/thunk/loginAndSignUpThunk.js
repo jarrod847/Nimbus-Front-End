@@ -19,6 +19,7 @@ export const SignUpApi = (userInfo, profile) => async () => {
     .post("/user/register", userInfo)
     .then((res) => {
       profile(res.data);
+      push("/profile");
     })
     .catch((err) => {
       console.log(err);
