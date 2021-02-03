@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
+import { editUserInfo } from "../Recoil/thunk/profileThunks";
+import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const EditProfileInfo = ({ userInfo, bool }) => {
-  const setNewinfo = useSetRecoilState(User);
+  const [newInfo, setNewinfo] = useRecoilState(User);
   const [info, setInfo] = useState({
     displayName: userInfo.displayName,
+    password: userInfo.password,
     bio: userInfo.bio,
     img: userInfo.img,
+    id: userInfo.id,
   });
 
   const handleChange = (e) => {
@@ -18,8 +22,9 @@ const EditProfileInfo = ({ userInfo, bool }) => {
   };
 
   const setToFalse = () => {
-    setNewinfo(info);
+    editUserInfo(userInfo.id, setNewinfo, info)();
     bool(false);
+    console.log(newInfo);
   };
 
   return (

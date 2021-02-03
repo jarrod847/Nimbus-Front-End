@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useSetRecoilState } from "recoil";
+import { Link, useHistory } from "react-router-dom";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
 import { LoginToApi } from "../Recoil/thunk/loginAndSignUpThunk";
 import AxiosWithUrl from "../utilities/axiosWithUrl";
 
 const Login = (props) => {
+  const checkValue = useRecoilValue(User);
   const [userCred, setUserCred] = useState({
     displayName: "",
     password: "",
@@ -19,10 +20,11 @@ const Login = (props) => {
     });
   };
 
+  const { push } = useHistory();
+
   const onSubmit = (e) => {
     e.preventDefault();
-    LoginToApi(userCred, setUserProfile)();
-    props.history.push("/profile");
+    LoginToApi(userCred, setUserProfile, push)();
   };
 
   return (
