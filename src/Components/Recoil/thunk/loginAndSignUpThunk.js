@@ -1,4 +1,3 @@
-import { prependOnceListener } from "process";
 import AxiosWithUrl from "../../utilities/axiosWithUrl";
 
 export const LoginToApi = (userCred, state, push) => async () => {
@@ -14,7 +13,7 @@ export const LoginToApi = (userCred, state, push) => async () => {
     });
 };
 
-export const SignUpApi = (userInfo, profile) => async () => {
+export const SignUpApi = (userInfo, profile, push) => async () => {
   AxiosWithUrl()
     .post("/user/register", userInfo)
     .then((res) => {
