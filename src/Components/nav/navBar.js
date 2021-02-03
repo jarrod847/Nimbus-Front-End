@@ -11,9 +11,15 @@ const NavBar = () => {
   return (
     <nav>
       <div className="navLinks">
-        <Link to="/timeline">
-          <img className="icon" src={Icon} />
-        </Link>
+        {userInfo.id ? (
+          <Link to="/timeline">
+            <img className="icon" src={Icon} />
+          </Link>
+        ) : (
+          <Link to="/">
+            <img className="icon" src={Icon} />
+          </Link>
+        )}
         <Link className="header" to="/">
           <h1>Nimbus</h1>
         </Link>
