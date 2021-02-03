@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import React, { useState } from "react";
+import { useSetRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
 
 const EditProfileInfo = ({ userInfo, bool }) => {
