@@ -10,6 +10,7 @@ const Profile = (props) => {
   const [cloudThoughts, setCloudThoughts] = useState([]);
   const [cloudComments, setCloudComments] = useState([]);
   const [switcher, setSwitcher] = useState(false);
+  const [edit, setEdit] = useState(false);
   const logout = () => {
     localStorage.clear();
     props.history.push("/login");
