@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
 import AxiosWithUrl from "../utilities/axiosWithUrl";
 import { SignUpApi } from "../Recoil/thunk/loginAndSignUpThunk";
@@ -13,7 +13,7 @@ const SignUp = (props) => {
     bio: "",
     img: "",
   });
-  const [userProfile, setUserProfile] = useRecoilState(User);
+  const setUserProfile = useSetRecoilState(User);
   const handleSignUp = (e) => {
     setForm({
       ...form,

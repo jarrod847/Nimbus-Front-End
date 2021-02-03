@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import User from "../Recoil/atom/user";
 
 const EditProfileInfo = ({ userInfo, bool }) => {
-  const [newInfo, setNewinfo] = useRecoilState(User);
+  const setNewinfo = useSetRecoilState(User);
   const [info, setInfo] = useState({
     displayName: userInfo.displayName,
     bio: userInfo.bio,
