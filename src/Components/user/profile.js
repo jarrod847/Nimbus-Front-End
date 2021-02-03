@@ -5,14 +5,17 @@ import User from "../Recoil/atom/user";
 import { getUserPosts, getUsersComments } from "../Recoil/thunk/profileThunks";
 import Post from "../timeLine/post";
 import Comment from "../timeLine/comments";
+import EditProfileInfo from "./editProfileForm";
 
 const Profile = (props) => {
   const [cloudThoughts, setCloudThoughts] = useState([]);
   const [cloudComments, setCloudComments] = useState([]);
   const [switcher, setSwitcher] = useState(false);
+  const [edit, setEdit] = useState(false);
   const logout = () => {
     localStorage.clear();
     props.history.push("/login");
+    window.location.reload();
   };
   const userInfo = useRecoilValue(User);
   const userId = userInfo.id;
@@ -28,6 +31,10 @@ const Profile = (props) => {
     } else {
       setSwitcher(false);
     }
+  };
+
+  const changeInfo = () => {
+    setEdit(!edit);
   };
 
   const displayContent = () => {
@@ -56,12 +63,18 @@ const Profile = (props) => {
         <div>
           <img src={userInfo.img} />
         </div>
-        <div className="userInfo">
-          <h3>Display Name: {userInfo.displayName}</h3>
-          <p>Bio: {userInfo.bio}</p>
-          <Link>Edit Profile</Link>
-          <button onClick={logout}>Logout</button>
-        </div>
+        {!edit ? (
+          <div className="userInfo">
+            <h3>Display Name: {userInfo.displayName}</h3>
+            <p>Bio: {userInfo.bio}</p>
+            <Link onClick={changeInfo}>Edit Profile</Link>
+            <button onClick={logout}>Logout</button>
+          </div>
+        ) : (
+          <div>
+            <EditProfileInfo userInfo={userInfo} bool={setEdit} />
+          </div>
+        )}
       </div>
       <div className="profileSwitcher">
         <h3 onClick={ChangeSwitcher}>Posts</h3>

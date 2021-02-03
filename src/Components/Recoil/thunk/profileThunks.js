@@ -17,3 +17,12 @@ export const getUsersComments = (userId, setComments) => async () => {
     console.log(e);
   }
 };
+
+export const editUserInfo = (userId, setUserInfo, data) => async () => {
+  try {
+    await AxiosWithUrl().put(`/user/${userId}`, data);
+    setUserInfo(data);
+  } catch (e) {
+    console.log(e);
+  }
+};
