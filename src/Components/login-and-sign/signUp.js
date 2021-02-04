@@ -9,7 +9,7 @@ const SignUp = (props) => {
     displayName: "",
     password: "",
     bio: "",
-    img: "",
+    user_img: "",
   });
   const setUserProfile = useSetRecoilState(User);
   const handleSignUp = (e) => {
@@ -46,7 +46,11 @@ const SignUp = (props) => {
         </span>{" "}
         <span className="signupSpan">
           <b>Img (Img URL)</b>
-          <input name="img" onChange={handleSignUp} value={form.img} />
+          <input
+            name="user_img"
+            onChange={handleSignUp}
+            value={form.user_img}
+          />
         </span>{" "}
         <span className="signupSpan">
           <b>Bio</b>

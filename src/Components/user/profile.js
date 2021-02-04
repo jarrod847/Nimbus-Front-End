@@ -61,7 +61,7 @@ const Profile = (props) => {
     <div>
       <div className="profile">
         <div>
-          <img src={userInfo.img} />
+          <img src={userInfo.user_img} />
         </div>
         {!edit ? (
           <div className="userInfo">

@@ -1,13 +1,13 @@
 import React from "react";
 
-const Post = ({ post, user }) => {
+const Post = ({ post }) => {
   return (
     <div className="post">
       <div>
-        <img className="userImg" src={user.img} />
+        <img className="userImg" src={post.user_img} />
       </div>
       <div className="postContext">
-        <h2>{user.displayName}</h2>
+        <h2>{post.displayName}</h2>
         <p>{post.content}</p>
       </div>
       <div className="postInteraction">
