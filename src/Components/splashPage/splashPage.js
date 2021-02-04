@@ -4,7 +4,7 @@ import { splashText } from "./splashText";
 
 const Home = () => {
   return (
-    <div class="splash">
+    <div className="splash">
       <h1>Welcome to Nimbus</h1>
       <p>{splashText[0]}</p>
       <h2>Rewards System</h2>

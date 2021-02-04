@@ -1,16 +1,31 @@
 import Axios from "axios";
 import { selector } from "recoil";
+import Posts from "../atom/post";
 
-const FetchPosts = selector({
+const PostSelector = selector({
   key: "postsSelector",
-  get: async ({ get }) => {
-    try {
-      const data = await Axios.get("localhost:7000/post/posts");
-      return data;
-    } catch (error) {
-      throw error;
-    }
+  get: ({ get }) => {
+    const postArray = get(Posts);
+    const postLikes = (users_who_liked) => {
+      if (users_who_liked === null) {
+        return 0;
+      } else {
+        return users_who_liked.length;
+      }
+    };
+    const postReposts = (users_who_reposted) => {
+      if (users_who_reposted === null) {
+        return 0;
+      } else {
+        return users_who_reposted.length;
+      }
+    };
+
+    return {
+      postLikes,
+      postReposts,
+    };
   },
 });
 
-export default FetchPosts;
+export default PostSelector;

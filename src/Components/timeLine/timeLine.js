@@ -11,7 +11,7 @@ const TimeLine = () => {
   const [userFeed, setUserFeed] = useRecoilState(Posts);
   useEffect(() => {
     AxiosWithUrl()
-      .get("/post/posts")
+      .get("/post")
       .then((res) => {
         setUserFeed(res.data);
       })
@@ -29,7 +29,7 @@ const TimeLine = () => {
       </div>
       <div className="timeLinePosts">
         {reversedArray.map((item) => (
-          <Post key={item.id} post={item} user={userInfo} />
+          <Post key={item.id} post={item} />
         ))}
       </div>
     </div>
