@@ -1,6 +1,9 @@
 import React from "react";
+import { useRecoilValue } from "recoil";
+import PostSelector from "../Recoil/selector/postSelector";
 
 const Post = ({ post }) => {
+  const { postLikes, postReposts } = useRecoilValue(PostSelector);
   return (
     <div className="post">
       <div>
@@ -13,11 +16,11 @@ const Post = ({ post }) => {
       <div className="postInteraction">
         <span>
           <button>Like</button>
-          <p>{post.likes}</p>
+          <p>{postLikes(post.users_who_liked)}</p>
         </span>
         <span>
           <button>Repost</button>
-          <p>{post.reposts}</p>
+          <p>{postReposts(post.users_who_reposted)}</p>
         </span>
         <span>
           <button>Comments</button>

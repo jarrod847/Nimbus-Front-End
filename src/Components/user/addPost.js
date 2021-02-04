@@ -9,9 +9,7 @@ const AddPost = () => {
   const userInfo = useRecoilValue(User);
   const [newPost, setNewPost] = useState({
     content: "",
-    likes: 0,
-    reposts: 0,
-    img: "",
+    post_img: "",
     user_id: userInfo.id,
   });
 
