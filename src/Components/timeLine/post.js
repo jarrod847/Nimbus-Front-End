@@ -1,9 +1,12 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import PostSelector from "../Recoil/selector/postSelector";
+import UserSelector from "../Recoil/selector/userSelector";
 
 const Post = ({ post }) => {
   const { postLikes, postReposts } = useRecoilValue(PostSelector);
+  const { userId } = useRecoilValue(UserSelector);
+  const addToLikesAndRepost = () => {};
   return (
     <div className="post">
       <div>
