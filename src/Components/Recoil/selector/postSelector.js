@@ -6,24 +6,26 @@ const PostSelector = selector({
   key: "postsSelector",
   get: ({ get }) => {
     const postArray = get(Posts);
-    const postLikes = (users_who_liked) => {
+    const postLikesAmount = (users_who_liked) => {
       if (users_who_liked === null) {
         return 0;
       } else {
         return users_who_liked.length;
       }
     };
-    const postReposts = (users_who_reposted) => {
+    const postRepostsAmount = (users_who_reposted) => {
       if (users_who_reposted === null) {
         return 0;
       } else {
         return users_who_reposted.length;
       }
     };
+    const postAddOrRemoveLike = (post, user_id) => {};
 
     return {
-      postLikes,
-      postReposts,
+      postLikesAmount,
+      postRepostsAmount,
+      postAddOrRemoveLike,
     };
   },
 });
