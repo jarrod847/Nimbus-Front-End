@@ -4,6 +4,8 @@ export const data = [
       "https://www.telegraph.co.uk/content/dam/films/2017/03/20/bean_trans_NvBQzQNjv4BqFNieKJvd-mi0anfcfhLYGg39oWbqNtszRryLrO6EuiQ.png?imwidth=1400",
     user: "BeanOut",
     text: "hmmhmhmhmmhmhmhmhm",
+    likes: 1,
+    reposts:1,
   },
   {
     userImg:

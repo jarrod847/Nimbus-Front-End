@@ -7,6 +7,7 @@ import Login from "./Components/login-and-sign/login";
 import "./scss/app.scss";
 import SignUp from "./Components/login-and-sign/signUp";
 import Home from "./Components/splashPage/splashPage";
+import Comments from "./Components/Comments/comments";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Router>
         <NavBar />
         <Route path="/timeLine" component={TimeLine} />
+        <Route path="/comments" component={Comments} />
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
